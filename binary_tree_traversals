@@ -1,0 +1,105 @@
+/*
+     1
+   /   \
+  2     3
+ / \   / \
+4   5 6   7
+
+1. In-Order Traversal:
+
+In in-order traversal, we visit the left subtree, then the current node, and finally the right subtree.
+
+Step-by-step traversal:
+
+Visit node 4.
+Visit node 2.
+Visit node 5.
+Visit node 1.
+Visit node 6.
+Visit node 3.
+Visit node 7.
+*/
+
+class TreeNode {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+function inOrderTraversal(node) {
+  if (node === null) return;
+  
+  inOrderTraversal(node.left);
+  console.log(node.value);
+  inOrderTraversal(node.right);
+}
+
+// Creating the binary tree
+const root = new TreeNode(1);
+root.left = new TreeNode(2);
+root.right = new TreeNode(3);
+root.left.left = new TreeNode(4);
+root.left.right = new TreeNode(5);
+root.right.left = new TreeNode(6);
+root.right.right = new TreeNode(7);
+
+// Performing in-order traversal
+inOrderTraversal(root);
+
+/*
+2. Pre-Order Traversal:
+
+In pre-order traversal, we visit the current node first, then the left subtree, and finally the right subtree.
+
+Step-by-step traversal:
+
+Visit node 1.
+Visit node 2.
+Visit node 4.
+Visit node 5.
+Visit node 3.
+Visit node 6.
+Visit node 7.
+*/
+
+function preOrderTraversal(node) {
+  if (node === null) return;
+  
+  console.log(node.value);
+  preOrderTraversal(node.left);
+  preOrderTraversal(node.right);
+}
+
+// Performing pre-order traversal
+preOrderTraversal(root);
+
+
+/*
+Post-Order Traversal:
+
+In post-order traversal, we visit the left subtree, then the right subtree, and finally the current node.
+
+Step-by-step traversal:
+
+Visit node 4.
+Visit node 5.
+Visit node 2.
+Visit node 6.
+Visit node 7.
+Visit node 3.
+Visit node 1.
+*/
+
+function postOrderTraversal(node) {
+  if (node === null) return;
+  
+  postOrderTraversal(node.left);
+  postOrderTraversal(node.right);
+  console.log(node.value);
+}
+
+// Performing post-order traversal
+postOrderTraversal(root);
+
